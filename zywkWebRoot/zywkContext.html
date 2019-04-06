@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset="UTF-8"" />
+<script language="javascript">
+ function addText()
+ {
+   var txt=document.createElement("input");
+   txt.type="text";
+   txt.name="txt";
+   txt.value="添加文章内容";
+   txt.id="subContext";
+   txt.style="width:400px;height:20px;margin:0 auto;";
+   txt.size="100";
+   txt.class="inputstyle keyword";
+   txt.onfocus='if(添加文章内容){this.value="";}; this.className="input01"';
+   txt.onblur='if(this.value==""){this.value="添加文章内容";}; this.className="input02"';
+   document.fm1.appendChild(txt);
+ }
+</script>
+</head>
+<body>
+<form name="fm1">
+<input type="button" style="width:100" name="btn1" value="subContext" onclick="addText();" />
+</form>
+</body>
+</html>

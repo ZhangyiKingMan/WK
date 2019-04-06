@@ -1,0 +1,16 @@
+{
+  "name": "nodejs-web-app1",
+  "version": "0.0.0",
+  "description": "NodejsWebApp1",
+  "main": "server.js",
+  "author": {
+    "name": ""
+  },
+  "dependencies": {
+    "mssql": "^5.0.3",
+    "promise": "^8.0.3",
+    "request": "^2.88.0",
+    "string-format": "^2.0.0",
+    "xml-js": "^1.6.11"
+  }
+}

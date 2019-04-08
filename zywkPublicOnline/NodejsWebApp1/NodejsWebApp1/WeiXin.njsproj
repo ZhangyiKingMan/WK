@@ -36,9 +36,6 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="HTML\JAVA\registe.js">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Menu\Menu.js">
       <SubType>Code</SubType>
     </Compile>
@@ -54,12 +51,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Content Include="Config\config.json" />
-    <Content Include="HTML\CSS\register.css">
-      <SubType>Code</SubType>
-    </Content>
-    <Content Include="HTML\Registe.html">
-      <SubType>Code</SubType>
-    </Content>
     <Content Include="package.json" />
     <Content Include="README.md" />
     <None Include="WeiXin.pubxml" />

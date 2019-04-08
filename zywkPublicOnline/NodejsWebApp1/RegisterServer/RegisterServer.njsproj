@@ -31,10 +31,27 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="register_http.js" />
-    <Content Include="Web.config" />
-    <Content Include="Web.Debug.config" />
+    <Compile Include="SQL_Server\SQLServer.js" />
+    <Content Include="Config\config.json">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="HTML\ASP\registe.asp">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="HTML\ASP\registeCheck.asp">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="HTML\CSS\register.css" />
+    <Content Include="HTML\Registe.html" />
     <Content Include="package.json" />
     <Content Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="HTML\" />
+    <Folder Include="HTML\CSS\" />
+    <Folder Include="Config\" />
+    <Folder Include="HTML\ASP\" />
+    <Folder Include="SQL_Server\" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />

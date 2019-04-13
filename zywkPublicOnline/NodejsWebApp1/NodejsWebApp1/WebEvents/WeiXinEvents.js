@@ -50,7 +50,9 @@ function WeiXinEvents(req, res) {
                         break;
                     //关注
                     case "SUBSCRIBE":
-                        menu.CreateMenu();
+                        var MenuInfo = "menuRegiste";
+                        menu.CreateMenu(MenuInfo);
+                        //getUserInfo();
                         break;
                 }
                 EventKey = json.elements[0].elements[5].name;
@@ -85,5 +87,7 @@ function WeiXinEvents(req, res) {
         }
     });
 }
+
+
 
 exports.WeiXinEvents = WeiXinEvents;

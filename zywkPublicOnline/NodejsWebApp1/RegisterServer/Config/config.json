@@ -3,5 +3,13 @@
     "port": "8090",
     "Invail": true,
     "host": "127.0.0.1"
+  },
+  "SQL": {
+    "Accounts": "sa",
+    "Passwords": "sql!@#$4321",
+    "HostName": "127.0.0.1",
+    "Port": 1433,
+    "PoolMax": 10,
+    "Timeout": 30000
   }
 }

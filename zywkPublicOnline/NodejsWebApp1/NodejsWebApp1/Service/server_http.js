@@ -26,7 +26,7 @@ if (httpJson.http.Invail === true) {
 
  //创建web一个服务器
 var server = http.createServer(function (serIn, serOut) {
-    console.log("Get coming!");
+    //console.log("Get coming!");
     //打印所有接受消息
     //console.log(serIn);
     //当服务器收到消息时候判断是否来自微信
@@ -35,7 +35,7 @@ var server = http.createServer(function (serIn, serOut) {
         /***此处处理来自微信的消息***/
         switch (serIn.method.toUpperCase()) {
             case "GET":
-                console.log(resulte);
+                console.log("GET:", resulte);
                 serOut.end(resulte);
                 break;
             case "POST":
@@ -61,7 +61,7 @@ var server = http.createServer(function (serIn, serOut) {
 server.listen(httpPort, host, () => {
     var serverInfo = str("host:{}, port:{} is working ...",host, httpPort);
     console.log(serverInfo);
-    Test.SqlTest();
+    //Test.SqlTest();
 });
 
 

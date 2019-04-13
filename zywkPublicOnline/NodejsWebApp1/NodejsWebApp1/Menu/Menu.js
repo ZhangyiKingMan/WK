@@ -2,6 +2,8 @@
 var request = require('request');
 var Promise = require('promise');
 
+
+//涉及到获取access_token
 var appId = 'wx31cba258e1ec7277'; 
 var appSecret = 'afa4e8bf1e96890d4ba54708e2de6e8b';
 
@@ -38,7 +40,7 @@ var menuRegiste = {
     "button": [{
         "name": "注册",
         "type": "view",
-        "url": "http://f7875fec.ngrok.io?login"
+        "url": "http://2957705a.ngrok.io"
     }, {
         "name": "简介",
         "type": "view",
@@ -107,7 +109,8 @@ function getToken(appId, appSecret) {
             if (!err) {
                 var result = JSON.parse(data);
                 console.log("result.access_token: ", result.access_token);
-                resolve(result.access_token)
+                //确保有效返回获取的access_token
+                resolve(result.access_token);
             }
             else {
                 console.log("In File Menu.js Funtion getToken request access_token error!");
@@ -118,6 +121,7 @@ function getToken(appId, appSecret) {
 
 }
 
+//设置菜单
 function setMenu(info) { 
     switch (info.toUpperCase()) {
         case "MENUREGISTE":
@@ -127,10 +131,15 @@ function setMenu(info) {
         default:
             return JSON.stringify(menuTest);
     }
-};
-var post_str = JSON.stringify(menuTest); 
+}
 
-function CreateMenu() {
+//创建菜单
+function CreateMenu(MenuInfo) {
+    var post_str;
+    if (MenuInfo === null)
+        post_str = setMenu();
+    else
+        post_str = setMenu(MenuInfo);
     getToken(appId, appSecret).then((access_token) => {
         if (access_token !== null) {
             var post_options = {
@@ -161,5 +170,21 @@ function CreateMenu() {
             post_req.end();
         }
     });
-};
+}
+
+//获取用户信息
+function GetUserInfo() {
+    console.log("开始获取用户信息");
+    var url = 'https://api.weixin.qq.com/cgi-bin/user/info?access_token=ACCESS_TOKEN&openid=OPENID&lang=zh_CN';
+    return request({ uri: url }, (err, res, data) => {
+        if (!err) {
+            var result = JSON.parse(data);
+            console.log("获取用户信息：", result);
+        }
+        else {
+            console.log("获取用户信息 Error!");
+        }
+    });
+
+}
 exports.CreateMenu = CreateMenu;

@@ -1,10 +1,11 @@
 ﻿var sql = require('mssql');
 var fs = require('fs');
+var cf = require('../../CommonFuntion/CommonFuntion.js');
 
 //基本设置相关常量
 var Configstr = "./Config/config.json";
 
-var sqlData = JSON.parse(fs.readFileSync(Configstr));
+var sqlData = JSON.parse(cf.CheckBuffer(fs.readFileSync(cf.StandPath(Configstr), { encoding: 'utf8' })));
 
 var sql_Accoutns = sqlData.SQL.Accounts;
 var sql_Passwords = sqlData.SQL.Passwords;
@@ -66,8 +67,10 @@ var TestDB = "zywk_PublicNumber";
 var TestProc = "TestProc";
 
 //执行的存贮过程
-function Execute(sqlDB, procedure, paramStr, func) {
+function ExecuteUseStr(sqlDB, procedure, paramStr, func) {
     try {
+        //确定数据为string
+
         initConnect(sqlDB);
         //解析str到JSON要求str格式如下
         // "index：｛sqlType:int, direction:"input|output|return"，inputValue:value｝"
@@ -76,19 +79,95 @@ function Execute(sqlDB, procedure, paramStr, func) {
             let request = pool.request();
             if (params !== null) {
                 //初始化sql存储过程参数
-                for (let index in params) {
+                for (var index in params) {
                     if (params[index].direction === direction.Output) {
                         switch (params[index].sqlType.toUpperCase()) {
                             case "INT":
                                 request.output(index, sql.TinyInt);
                                 break;
-
+                            case "STRING":
+                                request.output(index, sql.NVarChar);
+                                break;
+                            case "BOOL":
+                                request.output(index, sql.Bit);
+                                break;
                         }
                     }
                     else if (params[index].direction === direction.Input) {
                          switch (params[index].sqlType.toUpperCase()) {
                             case "INT":
                                  request.input(index, sql.TinyInt, params[index].inputValue);
+                                 break;
+                             case "STRING":
+                                 request.input(index, sql.NVarChar, params[index].inputValue);
+                                 break;
+                             case "BOOL":
+                                 request.input(index, sql.Bit, params[index].inputValue);
+                                 break;
+                         }
+                    }
+                    else {
+                        console.log("SQL_Server Params Direction Eerror!");
+                    }
+                }
+            }
+            request.execute(procedure, function (error, recordsets, returnValue, affected) {
+                if (error) {
+                    console.log(error);
+                    doRelease(pool);//关闭连接池
+                }
+                else {
+                    for (var index in params) {
+                        if (params[index].direction === direction.Output) {
+                            params[index].outputValue = request.parameters[index].value;
+                        }
+                    }
+                    func(error, recordsets, returnValue, affected);//回调函数
+                }
+                doRelease(pool);//关闭连接池
+            });
+        });
+        relaseConnect();
+    }
+    catch (err) {
+        doRelease(pool);
+        func(err);
+    }
+}
+
+function ExecuteUseJson(sqlDB, procedure, params, func) {
+    try {
+        initConnect(sqlDB);
+        //解析str到JSON要求str格式如下
+        // "index：｛sqlType:int, direction:"input|output|return"，inputValue:value｝"
+        var pool = new sql.ConnectionPool(config, function (err) {
+            let request = pool.request();
+            if (params !== null) {
+                //初始化sql存储过程参数
+                for (var index in params) {
+                    if (params[index].direction === direction.Output) {
+                        switch (params[index].sqlType.toUpperCase()) {
+                            case "INT":
+                                request.output(index, sql.TinyInt);
+                                break;
+                            case "STRING":
+                                request.output(index, sql.NVarChar);
+                                break;
+                            case "BOOL":
+                                request.output(index, sql.Bit);
+                                break;
+                        }
+                    }
+                    else if (params[index].direction === direction.Input) {
+                        switch (params[index].sqlType.toUpperCase()) {
+                            case "INT":
+                                request.input(index, sql.TinyInt, params[index].inputValue);
+                                break;
+                            case "STRING":
+                                request.input(index, sql.NVarChar, params[index].inputValue);
+                                break;
+                            case "BOOL":
+                                request.input(index, sql.Bit, params[index].inputValue);
                                 break;
                          }
                     }
@@ -103,12 +182,13 @@ function Execute(sqlDB, procedure, paramStr, func) {
                     doRelease(pool);//关闭连接池
                 }
                 else {
-                    for (let index in params) {
+                    for (var index in params) {
                         if (params[index].direction === direction.Output) {
                             params[index].outputValue = request.parameters[index].value;
                         }
                     }
-                    func(error, recordsets, returnValue, affected);//回调函数
+                    if (func !== null)
+                        func(error, recordsets, returnValue, affected);//回调函数
                 }
                 doRelease(pool);//关闭连接池
             });
@@ -158,9 +238,10 @@ function sqlTest() {
         var obj2 = JSON.parse(str);
         console.log(obj2);
     }
-    Execute(TestDB, TestProc, TestStr, sqlTestLog);
+    ExecuteUseStr(TestDB, TestProc, TestStr, sqlTestLog);
 }
 
-exports.Execute = Execute;
+exports.ExecuteUseStr = ExecuteUseStr;
+exports.ExecuteUseJson = ExecuteUseJson;
 exports.SqlTest = sqlTest;
 

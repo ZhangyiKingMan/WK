@@ -1,0 +1,72 @@
+﻿{
+  "gh_de33b437883c": {
+    "button": [
+      {
+        "name": "微课服务",
+        "sub_button": [
+          {
+            "type": "view",
+            "name": "注册",
+            "url": "http://8553cbf4.ngrok.io/Registe"
+          },
+          {
+            "type": "view",
+            "name": "续费",
+            "url": "http://8553cbf4.ngrok.io/ZywkPayforMsg"
+          },
+          {
+            "type": "click",
+            "name": "简介",
+            "key": "Message"
+          }
+        ]
+      },
+      {
+        "name": "经营管理",
+        "sub_button": [
+          {
+            "type": "click",
+            "name": "服务管理",
+            "key": "ServiceManager"
+          },
+          {
+            "type": "click",
+            "name": "商品管理",
+            "key": "ShopManager"
+          },
+          {
+            "type": "click",
+            "name": "活动管理",
+            "key": "ActiveMessage"
+          },
+          {
+            "type": "click",
+            "name": "推文管理",
+            "key": "PushMessage"
+          }
+        ]
+      },
+      {
+        "name": "信息查询",
+        "sub_button": [
+          {
+            "type": "click",
+            "name": "经营查询",
+            "key": "StatusLook"
+          },
+          {
+            "type": "click",
+            "name": "会员查询",
+            "key": "VIPLook"
+          },
+          {
+            "type": "view",
+            "name": "活动查询",
+            "url": "http://8553cbf4.ngrok.io/active"
+          }
+        ]
+      }
+    ]
+  }
+
+}

@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="RegisteZywk">
+<head>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8" />
+    <link href="./css/register.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" href="/html/favicon.ico" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width,maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+</head>
+<body>
+    <div id="TopBackground">
+        <h2 id="Level1">
+            欢迎注册使用微科服务！
+        </h2>
+        <p>
+            <h3 id="Level2">注册前注意事项:</h3>
+            <div id="Level3">
+               1、请先注册微信公众号获取对应的appID与appsecret。<br />
+               2、请填写真实有效的信息，以方便后续微科为您服务。<br />
+               3、使用微科服务必须依照微科服务章程及相关规定使用。<br />
+               4、禁止将微科服务用于法定服务范围外，若您的服务在法律外，微科有权停止微科所提供的所有服务。
+            </div>
+        </p>
+    </div>
+    <form name="registe" method="post" action="./ASP/registerBack.asp">
+        <div>
+            <table>
+                <tr><td><h4>公众号信息</h4></td></tr>
+                <tr>
+                    <td>&nbsp;&nbsp;微信昵称:</td>
+                    <td><input id="line" name="weiXinName" , type="text" value="nickname" readonly="true" /></td>
+                </tr>
+                <tr>
+                    <td  id="test"> &nbsp;&nbsp;微信ID:</td>
+                    <td><input id="line" name="weiXinID" , type="text" value="openid" readonly="true" /></td>
+                </tr>
+                <tr>
+                    <td id="test">&nbsp;&nbsp;公众号名称<sup id="smart">*</sup>:</td>
+                    <td><input id="line" name="publicName" , type="text" placeholder="注册公众号对应的名称" required /></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;公众号ID<sup id="smart">*</sup>:</td>
+                    <td><input id="line" name="publicId" , type="text" placeholder="注册公众号的ID" required /></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;AppID<sup id="smart">*</sup>:</td>
+                    <td><input id="line" name="publicAppID" , type="text" placeholder="注册公众号时所获取的appID" required /></td>
+                </tr>
+                <tr>
+                    <td id="test">&nbsp;&nbsp;Appsecret<sup id="smart">*</sup>:</td>
+                    <td><input id="line" name="publicAppsecret" , type="text" placeholder="注册公众号时所获取的appsecret" required /></td>
+                </tr>
+                <!--  <tr>
+                    <td>&nbsp;&nbsp;微信公众号Token:</td>
+                    <td><input id="line" name="publicToken" , type="text" value="测试ID" readonly="true" /></td>
+                </tr> -->
+                <tr>
+                    <td>&nbsp;&nbsp;服务类型:<sup id="smart">*</sup></td>
+                    <td>
+                        <!-- 次数以后应当用配置文件或者读取数据库方式来设置服务类型-->
+                        <select name="serviceType" id="lineSelect">
+                            <option selected value="1">服务类型1</option>
+                            <option value="2">服务类型2</option>
+                            <option value="3">服务类型3</option>
+                            <option value="4">服务类型4</option>
+                            <option value="5">服务类型5</option>
+                            <option value="6">其他类型</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr id="divide"></tr>
+                <tr><td><h4>个人信息</h4></td></tr>
+                <tr>
+                    <td>&nbsp;&nbsp;姓名:<sup id="smart">*</sup></td>
+                    <td><input id="line" name="userName" , type="text" placeholder="张三" required /></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;性别:<sup id="smart">*</sup></td>
+                    <td>
+                        <div id="lineRadio">
+                            <input name="userGender" , type="radio" value="0" />女
+                        </div>
+                        <div id="lineRadio">
+                            <input name="userGender" , type="radio" value="1" checked />男
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;联系电话:<sup id="smart">*</sup></td>
+                    <td><input id="line" name="userPhone" , type="text" placeholder="183********" required /></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;有效邮箱:</td>
+                    <td><input id="line" name="userEmail" , type="text" /></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;身份证号:<sup id="smart">*</sup></td>
+                    <td><input id="line" name="userID" , type="text" placeholder="5106**************" required /></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;注册账号:<sup id="smart">*</sup></td>
+                    <td><input id="line" name="registeAccount" , type="text" placeholder="账号只能是字母或数字，且不能数字开头" required /></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;注册密码:<sup id="smart">*</sup></td>
+                    <td><input id="line" name="registePassword" , type="password" placeholder="请输入密码" required /></td>
+                </tr>
+                <tr id="divide"></tr>
+                <tr><td> <h4>其它信息</h4></td></tr>
+                <tr>
+                    <td>&nbsp;&nbsp;公司名称:</td>
+                    <td><input id="line" name="companyName" , type="text" /></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;公司地址:</td>
+                    <td><input id="line" name="companyAddr" , type="text" value="country-city-province" /></td>
+                </tr>
+                <tr id="divide"></tr>
+                <tr><td> <spa id="a">推荐奖励:</spa></td></tr>
+                <td>&nbsp;&nbsp;推荐人ID:</td>
+                <td><input id="line" name="goodManWeiXinID" , type="text" /></td>
+            </table>
+            <div id="button">
+                <input name="registeSubmit" type="submit" value="注册" />
+                <input name="view" type="submit" value="预览"/>
+            </div>
+
+        </div>
+    </form>
+</body>
+</html>

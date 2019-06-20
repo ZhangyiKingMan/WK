@@ -1,0 +1,3 @@
+D:\zywk\zywk\zywk\obj\Debug\zywk.njsprojAssemblyReference.cache
+D:\zywk\zywk\zywk\obj\Debug\zywk.njsproj.CoreCompileInputs.cache
+D:\zywk\zywk\zywk\bin\Microsoft.NodejsTools.WebRole.dll

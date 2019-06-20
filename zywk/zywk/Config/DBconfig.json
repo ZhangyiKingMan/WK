@@ -1,0 +1,25 @@
+﻿{
+  "zywk_PublicNumber": {
+    "method": [ "registeSubmit", "Register_OfficialAccounts" ],
+    "data": {
+      "publicId": [ "string" ],
+      "publicAppID": [ "string" ],
+      "publicName": [ "string" ],
+      "weiXinName": [ "string" ],
+      "weiXinID": [ "string" ],
+      "publicAppsecret": [ "string" ],
+      "publicToken": [ "string" ],
+      "serviceType": [ "int" ],
+      "registeAccount": [ "string" ],
+      "registePassword": [ "string" ],
+      "userName": [ "string" ],
+      "userID": [ "string" ],
+      "userGender": [ "bool" ],
+      "userPhone": [ "string" ],
+      "userEmail": [ "string" ],
+      "companyName": [ "string" ],
+      "companyAddr": [ "string" ],
+      "goodManWeiXinID": [ "string" ]
+    }
+  }
+}

@@ -1,0 +1,109 @@
+﻿body {
+    background-color:white
+}
+
+h2{
+    text-align:center;
+    font-size:larger;
+    font-weight:bold;
+    color:darksalmon;
+}
+
+.text{
+    text-align:left;
+    margin-left:5%;
+    font-size:medium;
+    font-weight:bold;
+    color:darksalmon;
+    margin-bottom:5%;
+}
+
+form {
+    border:none;
+    margin:auto;
+    padding:unset;
+}
+.text{
+    margin-left:5%;
+    text-align:right;
+    font-size:medium;
+}
+.divForm {
+    border-radius: 12px;
+    margin-top: 5%;
+    margin-left:2%;
+    margin-top:2%;
+    width: 96%;
+    height: 60px;
+    border: solid;
+    border-color: cornflowerblue;
+    border-width: thin;
+    vertical-align: middle;
+}
+
+form select{
+    min-height:60%;
+    width:100%;
+    
+}
+.chosse {
+    background-position-x: right;
+    background-position-y: bottom;
+    background-size: initial;
+    background-repeat: no-repeat;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: transparent;
+    background-image: url(../picture/choose.png);
+}
+.price {
+    width: 8%;
+    margin-top: 5%;
+    margin-right: 30%;
+    text-align: left;
+    font-size: larger;
+    color: orangered;
+    float: left;
+    /*border: 1px solid black;*/
+}
+.msg {
+    width: 35%;
+    margin-top: 5%;
+    text-align: left;
+    margin-left: 15%;
+    margin-right: 10%;
+    font-size: medium;
+    color: cornflowerblue;
+    float: left;
+}
+
+.headInfo {
+    margin-top: 10%;
+    margin-bottom: 5%;
+    margin-left: 5%;
+    color: coral;
+    font-size: medium;
+}
+
+.button{
+    border-radius:12px;
+    background-color:lawngreen;
+    color:black;
+    font-size:larger;
+    text-align:center;
+    margin-top:10%;
+    margin-left:25%;
+    border:1px solid black;
+    width:50%;
+    height:60px;
+}
+.payInfo {
+    border: none;
+    font-size: larger;
+    margin-top: 5%;
+    margin-left:5%;
+    color:coral;
+    width:120px;
+    height:50px;
+}

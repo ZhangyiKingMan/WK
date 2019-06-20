@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="ZywkMsg">
+
+<header>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8" />
+    <link href="./css/ZywkPayforMsg.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" href="/html/favicon.ico" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width,maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+</header>
+
+<body>
+    <h2>
+        欢迎使用微科服务
+    </h2>
+    <span class="headInfo">
+        充值人信息:<strong></strong>
+    </span>
+    <br />
+    <span class="headInfo">
+        充值对象信息:<strong></strong>
+    </span>
+    <br />
+    <span class="text">
+        请选择您的套餐:
+    </span>
+    <form name="useService" method="get" action="../payfor">
+        <div class="divForm">
+            <span class="msg">月付</span>
+            <span class="price"><stong>80</stong>￥</span>
+        </div>
+        <div class="divForm" onclick="">
+            <span class="msg">季度</span>
+            <span class="price"><stong>240</stong>￥</span>
+        </div>
+        <div class="divForm">
+            <span class="msg">年付</span>
+            <span class="price"><stong>960</stong>￥</span>
+        </div>
+        <label class="text">实付款款金额:</label>
+        <input class="payInfo" type="text" name="number" value="" readonly="true" />
+        <input class="button" type="submit" name="payfor" value="确认支付" />
+        <input id ="consumer" type="text" name="consumer" value="consumer" readonly="true" style="display:none" />
+        <input id="merchant" type="text" name="merchant" value="merchant" readonly="true"  style="display:none"/>
+    </form>
+    <script>
+        //获取信息
+        var str = decodeURIComponent(location.href);
+        var msg = str.split('&')[0].split('?')[1].substring(1, str.split('&')[0].split('?')[1].length -2)
+        var arr = msg.split(' ');
+        for (var index in arr) {
+            var newArr = arr[index].split('=');
+            if (newArr[0] === 'from') {
+                document.getElementById("consumer").value = newArr[1];
+            }
+            else if (newArr[0] === 'to') {
+                document.getElementById("merchant").value = newArr[1];
+            }
+        }
+        //准备函数
+        function addClass(elem, className) {
+            elem.className += " " + className;
+        }
+        function hasClass(elem, className) {
+            var reg = new RegExp('(\\s|^)' + className + '\\s|$');
+            return reg.test(elem.className);
+        }
+        function delClass(elem, className) {
+            if (hasClass(elem, className)) {
+                elem.className = "divForm";
+            }
+        }
+        //对鼠标做出响应
+        var div = document.getElementsByTagName("div");
+        for (var i = 0; i < div.length; i++) {
+            div[i].onmouseover = function (e) {
+
+                this.style.border = "solid darkorange medium";
+            }
+            div[i].onmouseout = function (e) {
+                this.style.border = "solid cornflowerblue thin ";
+            }
+            div[i].onclick = function (e) {
+                var c_div = document.getElementsByTagName("div");
+                for (var j = 0; j < c_div.length; j++) {
+                    delClass(c_div[j], "chosse");
+                }
+                addClass(this, "chosse");
+                document.getElementsByClassName("payInfo")[0].value = this.childNodes[3].firstElementChild.innerHTML + " ￥";
+            }
+        }
+        var but = document.getElementsByTagName("input");
+        but.onmousedown = function (e) {
+            this.style.backgroundcolor = "burlywood";
+        }
+        but.onmouseup = function (e) {
+            this.style.backgroundcolor = "lawngreen";
+        }
+    </script>
+</body>
+
+<noscript>
+    <p>本页面需要浏览器支持（启用）javascript脚本才能正常运行。</p>
+</noscript>
+
+</html>

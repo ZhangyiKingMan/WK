@@ -1,0 +1,22 @@
+{
+  "name": "zywk",
+  "version": "0.0.0",
+  "description": "zywk",
+  "scripts": {
+    "start": "node server"
+  },
+  "engines": {
+    "node": "~6.10.x"
+  },
+  "author": {
+    "name": ""
+  },
+  "dependencies": {
+    "mssql": "^5.1.0",
+    "node-gyp": "^4.0.0",
+    "promise": "^8.0.3",
+    "request": "^2.88.0",
+    "string-format": "^2.0.0",
+    "xmlreader": "^0.2.3"
+  }
+}

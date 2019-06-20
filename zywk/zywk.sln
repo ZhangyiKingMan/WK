@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.539
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "zywk", "zywk\zywk.njsproj", "{ECFDFC56-1087-4873-8E41-F12234B0F04D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CommonFunction", "CommonFunction", "{B5CBFC13-9410-4A1E-A0CB-3D54F77D7521}"
+	ProjectSection(SolutionItems) = preProject
+		CommonFunction\CommonFunction.js = CommonFunction\CommonFunction.js
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ECFDFC56-1087-4873-8E41-F12234B0F04D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECFDFC56-1087-4873-8E41-F12234B0F04D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECFDFC56-1087-4873-8E41-F12234B0F04D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECFDFC56-1087-4873-8E41-F12234B0F04D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D540F6E3-E8C5-44A5-A0A0-4A47F1F3CA94}
+	EndGlobalSection
+EndGlobal

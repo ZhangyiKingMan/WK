@@ -1,0 +1,80 @@
+﻿
+#TopBackground {
+    /*顶部背景颜色,与位置大小*/
+    background-color: greenyellow;
+    background-position-y: 10%;
+    /*顶部文字大小，位置，排版*/
+    font-size: x-large;
+    text-align: center;
+    font-weight: 500;
+}
+
+ /*
+  * 段落文字
+  * 等级1用作小结
+  * 等级2用作段落
+  */
+#Level1 {
+    font-size: x-large;
+    text-align: left;
+    margin: auto;
+}
+
+#Level2 {
+    text-align: left;
+    font-size: large;
+}
+#Level3 {
+    text-align: left;
+    font-size: medium;
+    margin-left: 8%;
+}
+#test {
+    text-align: left;
+    border-right-width:unset;
+    margin-left: 2%;
+    margin-right: 80%;
+}
+#line {
+    width: 100%;
+    height: 2rem;
+    line-height: 2rem;
+    margin-left: 20%;
+    text-align: left;
+    border-left-width:unset;
+}
+
+#lineSelect {
+    width: 100%;
+    height: 2rem;
+    margin-left: 20%;
+    text-align: left;
+}
+
+#lineRadio {
+    width: 40%;
+    line-height: 1rem;
+    float:right;
+}
+
+#smart {
+    color: red;
+}
+
+#divide {
+    height: 2rem;
+}
+
+#button input {
+    width: 5rem;
+    height: 2rem;
+    margin-top: 1.5rem;
+}
+
+#button {
+    text-align: center;
+}
+
+#a {
+    color: sandybrown;
+}
